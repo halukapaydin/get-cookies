@@ -8,13 +8,19 @@
       "38": "icons/default38.png"
     }
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "halukapaydin@gmail.com",
+      "strict_min_version": "87.0"
+    }
+  },
   "description": "List cookies in the active tab.",
   "icons": {
     "48": "icons/cookie.png",
     "96": "icons/cookie@2x.png"
   },
   "manifest_version": 2,
-  "name": "List cookies",
+  "name": "webflow-cookie-exporter",
   "version": "1.0",
   "permissions": ["cookies","<all_urls>","tabs"]
 }
