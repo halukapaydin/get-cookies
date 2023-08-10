@@ -1,7 +1,7 @@
 {
   "browser_action": {
     "browser_style": true,
-    "default_title": "List cookies in the active tab",
+    "default_title": "List cookies and localStorage in the active tab",
     "default_popup": "cookies.html",
     "default_icon": {
       "19": "icons/default19.png",
@@ -22,5 +22,5 @@
   "manifest_version": 2,
   "name": "webflow-cookie-exporter",
   "version": "1.0",
-  "permissions": ["cookies","<all_urls>","tabs"]
+  "permissions": ["activeTab","cookies","<all_urls>","tabs", "storage"]
 }

@@ -1,11 +1,15 @@
 html, body {
 }
 
+body{
+  /*height: 800px;*/
+}
+
 .panel {
   padding: 5px;
 }
 
 .json{
-  width: 800px;
-  height: 500px;
+  width: 700px;
+  height: 200px;
 }

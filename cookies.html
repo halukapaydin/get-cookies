@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="cookies.css"/>
-  </head>
+</head>
 
-  <body>
-    <div class="panel">
-      <div class="panel-section panel-section-header">
+<body>
+<div class="panel">
+    <div class="panel-section panel-section-header">
         <div class="text-section-header" id="header-title"></div>
-      </div>
-      <div>
-      <button id="copy">Copy to clipboard</button>
     </div>
     <div>
-      <textarea id="json" class="json">
-      </textarea>
-      </div>
+        <button id="copyCookieJson">Copy Cookies to clipboard</button>
+    </div>
+    <div>
+        <textarea id="cookieJson" class="json"></textarea>
+    </div>
+    <div>
+        <button id="copyLocalStorageJson">Copy local storage to clipboard</button>
+    </div>
+    <div>
+        <textarea id="localStorageJson" class="json"></textarea>
+    </div>
     <script src="cookies.js"></script>
-  </body>
+</div>
+</body>
 
 </html>
