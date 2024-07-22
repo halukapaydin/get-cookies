@@ -14,32 +14,25 @@ function showCookiesForTab(tabs) {
         if (cookies && cookies.length > 0) {
             cookieJson = cookiesToString(cookies);
         }
-        let cookieJsonElement = document.getElementById("cookieJson");
-        cookieJsonElement.value = cookieJson;
-    });
+        const userAgent = window.navigator.userAgent;
 
-    let localStorageGet = browser.storage.local.get();
-    localStorageGet.then((items)=>{
-        let localStorageJsonElement = document.getElementById("localStorageJson");
-        localStorageJsonElement.value = JSON.stringify(items);
-    }, (error)=>{
-        let localStorageJsonElement = document.getElementById("localStorageJson");
-        localStorageJsonElement.value = JSON.stringify(error);
+        let cookieJsonElement = document.getElementById("cookieJson");
+        cookieJsonElement.value = userAgent  + "|" +  cookieJson;
     });
 
 }
 function cookiesToString(cookies) {
-    let join = cookies.map(cookie=>{
-        return JSON.stringify({
-            name : cookie.name,
-            value : cookie.value,
-            path : cookie.path,
-            domain : cookie.domain,
-            isHttpOnly : cookie.isHttpOnly,
-            expiry : cookie.expiry
-        })
-    });
-    return JSON.stringify(join);
+    // let join = cookies.map(cookie=>{
+    //     return JSON.stringify({
+    //         name : cookie.name,
+    //         value : cookie.value,
+    //         path : cookie.path,
+    //         domain : cookie.domain,
+    //         isHttpOnly : cookie.isHttpOnly,
+    //         expiry : cookie.expiry
+    //     })
+    // });
+    return JSON.stringify(cookies);
 }
 
 
@@ -48,18 +41,10 @@ function cookiesToString(cookies) {
 function getActiveTab() {
     return browser.tabs.query({currentWindow: true, active: true});
 }
-
 function copyCookieJson() {
     const copyText = document.getElementById("cookieJson");
     copyText.select();
     document.execCommand("copy");
 }
-
-function copyLocalStorageJson() {
-    const copyText = document.getElementById("localStorageJson");
-    copyText.select();
-    document.execCommand("copy");
-}
 document.getElementById("copyCookieJson").addEventListener("click", copyCookieJson);
-document.getElementById("copyLocalStorageJson").addEventListener("click", copyLocalStorageJson);
 getActiveTab().then(showCookiesForTab);
